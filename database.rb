@@ -1,6 +1,5 @@
 module Database
   extend self
-  require 'json'
 
   @contacts = [
     {
@@ -20,24 +19,30 @@ module Database
     @contacts.find { |contact| contact["id"] == id }
   end
 
-  def find
-    #
-  end
-
   # Create contact
-  def addContact(contact)
-    new_contact = JSON.parse(contact)
+  def addContact(id, name, phones, emails, company)
+    new_contact = {
+      "id" => id
+      "name" => name,
+      "phones" => phones,
+      "emails" => emails,
+      "company" => company
+    }
 
     if new_contact["name"]= ""
       new_contact["name"] = new_contact["phones"][0]
     end
 
     @contacts.push(new_contact)
-    contact + " was added."
   end
 
-  def update
-    # Your code..
+  def updateContact(id, name, phones, emails, company)
+    contact = @contacts.find { |contact| contact["id"] == id }
+
+    contact["name"] = name unless name.nil?
+    contact["phones"] = phones unless phones.nil?
+    contact["emails"] = emails unless emails.nil?
+    contact["company"] = company unless company.nil?
   end
 
   def deleteContact(id)
@@ -48,7 +53,8 @@ module Database
     end
   end
 
-  def replace(contact)
-    #
+  def replaceContact(id, name, phones, emails, company)
+    deleteContact(id)
+    addContact(id, name, phones, emails, company)
   end
 end
