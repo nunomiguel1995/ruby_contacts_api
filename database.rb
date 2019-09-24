@@ -1,12 +1,13 @@
 module Database
   extend self
+  require 'json'
 
   @contacts = [
     {
-      :name => "Zé",
-      :phones => ["932019234"],
-      :emails => ["ze@gmail.com"],
-      :company => "Talkdesk"
+      "name" => "Zé",
+      "phones" => ["932019234"],
+      "phones" => ["ze@gmail.com"],
+      "company" => "Talkdesk"
     }
   ]
 
@@ -18,8 +19,11 @@ module Database
     # Your code..
   end
 
-  def store
-    # Your code..
+  # Create contact
+  def storeContact(contact)
+    new_contact = JSON.parse(contact)
+    @contacts.push(new_contact)
+    contact + " was added."
   end
 
   def update
