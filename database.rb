@@ -1,7 +1,14 @@
 module Database
   extend self
 
-  @contacts = [1, 2, 3]
+  @contacts = [
+    {
+      :name => "Zé",
+      :phones => ["932019234"],
+      :emails => ["ze@gmail.com"],
+      :company => "Talkdesk"
+    }
+  ]
 
   def all
     # Your code..
