@@ -12,11 +12,11 @@ module Database
   ]
 
   def all
-    #
+    @contacts
   end
 
-  def getContact(name)
-    @contacts.find { |contact| contact["name"] == name }
+  def getContact(id)
+    @contacts.find { |contact| contact["id"] == id }
   end
 
   def find
@@ -32,6 +32,11 @@ module Database
 
   def update
     # Your code..
+  end
+
+  def replace(contact)
+    delete(contact)
+    addContact(contact)
   end
 
   def delete

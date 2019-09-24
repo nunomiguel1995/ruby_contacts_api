@@ -5,8 +5,8 @@ get '/' do
 end
 
 get '/get_contact' do
-  name = params['name']
-  Database.getContact(name).to_json
+  name = params['id']
+  Database.getContact(id).to_json
 end
 
 post '/add_contact' do
