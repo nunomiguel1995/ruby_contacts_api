@@ -4,6 +4,7 @@ module Database
 
   @contacts = [
     {
+      "id" => 1
       "name" => "Ze",
       "phones" => ["932019234"],
       "emails" => ["ze@gmail.com"],
@@ -48,7 +49,6 @@ module Database
   end
 
   def replace(contact)
-    delete(contact)
-    addContact(contact)
+    #
   end
 end
