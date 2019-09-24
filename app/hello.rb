@@ -18,4 +18,4 @@ end
 post '/delete_contact' do
   request.body.rewind
   data = request.body.read
-  Database.delete_contact(data)
+  Database.delete_contact(data["id"])
