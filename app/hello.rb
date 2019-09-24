@@ -25,12 +25,11 @@ end
 post '/replace_contact' do
   request.body.rewind  # in case someone already read it
   data = request.body.read
-  Database.replaceContact(data["id"], data["name"], data["phones"], data["emails"], data["company"])
+  Database.replaceContact(data["id"], data["name"], data["phones"], data["emails"], data["company"]).to_json
 end
 
 post '/update_contact' do
   request.body.rewind
   data = JSON.parse request.body.read
-  puts data.inspect
   Database.updateContact(data["id"], data["name"], data["phones"], data["emails"], data["company"]).to_json
 end
