@@ -11,11 +11,17 @@ module Database
   ]
 
   def all
-    # Your code..
+    #
+  end
+
+  def getContact(name)
+    for contact in @contacts do
+      arr.select {|e| e%3 == 0}
+    end
   end
 
   def find
-    # Your code..
+    #
   end
 
   def store
