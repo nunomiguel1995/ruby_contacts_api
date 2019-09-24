@@ -4,9 +4,9 @@ get '/' do
   Database.all.to_json
 end
 
-get '/contact' do
-  name = params['name']
-  Database.getContact(name).to_json
+get '/get_contact' do
+  name = params['id']
+  Database.getContact(id).to_json
 end
 
 post '/add_contact' do
@@ -14,3 +14,8 @@ post '/add_contact' do
   data = request.body.read
   Database.storeContact(data)
 end
+
+post '/delete_contact' do
+  request.body.rewind
+  data = request.body.read
+  Database.delete_contact(data)

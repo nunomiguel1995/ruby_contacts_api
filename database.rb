@@ -4,7 +4,7 @@ module Database
 
   @contacts = [
     {
-      "name" => "Zé",
+      "name" => "Ze",
       "phones" => ["932019234"],
       "emails" => ["ze@gmail.com"],
       "company" => "Talkdesk"
@@ -12,13 +12,11 @@ module Database
   ]
 
   def all
-    #
+    @contacts
   end
 
-  def getContact(name)
-    for contact in @contacts do
-      arr.select {|e| e%3 == 0}
-    end
+  def getContact(id)
+    @contacts.find { |contact| contact["id"] == id }
   end
 
   def find
@@ -41,11 +39,16 @@ module Database
     # Your code..
   end
 
-  def deleteContact(id)
+  def deleteContact(data)
     for contact in @contacts do
-      if id == contact["id"]
-        @contacts.delete_at(id)
+      if data["id"] == contact["id"]
+        @contacts.delete_at(data["id"])
       end
     end
+  end
+
+  def replace(contact)
+    delete(contact)
+    addContact(contact)
   end
 end
