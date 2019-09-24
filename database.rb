@@ -4,7 +4,7 @@ module Database
 
   @contacts = [
     {
-      "name" => "Zé",
+      "name" => "Ze",
       "phones" => ["932019234"],
       "phones" => ["ze@gmail.com"],
       "company" => "Talkdesk"
@@ -16,9 +16,7 @@ module Database
   end
 
   def getContact(name)
-    for contact in @contacts do
-      arr.select {|e| e%3 == 0}
-    end
+    @contacts.find { |contact| contact["name"] == name }
   end
 
   def find
