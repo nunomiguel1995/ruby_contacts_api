@@ -39,10 +39,10 @@ module Database
     # Your code..
   end
 
-  def deleteContact(data)
+  def deleteContact(id)
     for contact in @contacts do
-      if data["id"] == contact["id"]
-        @contacts.delete_at(data["id"])
+      if id == contact["id"]
+        @contacts.delete_at(id)
       end
     end
   end
